@@ -1,13 +1,11 @@
-<div class="highlight">
-    config:
-    <pre>{{config | json}}</pre>
-</div>
-
 <div class="highlight" *ngIf="componentData">
     component data:
     <pre>{{componentData | json}}</pre>
 </div>
-
+<div class="highlight">
+    config:
+    <pre>{{config | json}}</pre>
+</div>
 
 <!-- * * * * * * * * * * * LIST VIEW * * * * * * * * * * * * * * * * -->
 <div *ngIf="displayType=='list'" class="component-container">
@@ -76,6 +74,11 @@
             </div>
         </div>
     </div>
+    <div class="card align-items-end" style="padding: 10px;">
+       
+        <div class="btn btn-primary" *ngIf="!testIds" (click)="toggle('id')">Test: Remove Ids</div>
+        <div class="btn btn-primary" *ngIf="testIds" (click)="toggle('id')">Test: Show Ids</div>
+    </div>    
 </div>
 
 <!-- * * * * * * * * * * * DETAILS VIEW * * * * * * * * * * * * * * * * -->
@@ -97,6 +100,9 @@
             </form>
         </div>
     </div>
-
+    <div class="card align-items-end" style="padding: 10px;">
+        <div class="btn btn-primary" *ngIf="!testIds" (click)="toggle('first');toggle('last');">Test: Remove First and Last name</div>
+        <div class="btn btn-primary" *ngIf="testIds" (click)="toggle('first');toggle('last');">Test: Show First and Last name</div>
+    </div>
 
 </div>

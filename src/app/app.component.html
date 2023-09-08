@@ -118,11 +118,11 @@
 <div class="content" role="main">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" [class.active]="page==0" (click)="page=0" aria-current="page" href="#">Component
+      <a class="nav-link" [class.active]="page==0" (click)="page=0" aria-current="page">Component
         Design Document</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [class.active]="page==1" (click)="page=1" href="#">Sample</a>
+      <a class="nav-link" [class.active]="page==1" (click)="page=1">Sample</a>
     </li>
   </ul>
 
@@ -131,18 +131,18 @@
     <br>
     <h4>Overview</h4>
     We are required to create a versatile multi-purpose component in order to display various data derived from a WebApi
-    backednd service. All logic for data retrieval
+    backend service. All logic for data retrieval
     and parsing of that data should be handled inside this component and the user should be able to parameterize it
     using input
     parameters. The user should also be able to handle which
-    data is visible and how the component is rendered. We would also to have the capability to maintain and extent the
+    data is visible and how the component is rendered. We would also like to have the capability to maintain and extent the
     component with ease, if the need arises in the future.
     <br>
     <br>
     <br>
     <h4>Component Design</h4>
     <br>
-    <h6 id="input-parameters">UI/UX</h6>
+    <h6>UI/UX</h6>
     <p>The component will consist of two main parts. The <strong>Header section</strong> and the <strong>Content
         section</strong>. In the header section we will need to have a title and some action buttons that can be used to
       perform various tasks. For now we need two actions: ADD and EDIT.</p>
@@ -158,7 +158,7 @@
       decisions.
       Each item in the list will render a dynamic ammount of elements in a row. The selection will be handled by the
       user.
-      (see bellow, <a href="#input-parameters">Inputs/Parameters</a>) The list should be scollable of course and each
+      (see bellow, <a href="#input-parameters">Inputs/Parameters</a>) The list should be scrollable of course and each
       item
       should be clickable in order for the component to be able to fetch its details from the backend service</p>
     <br>
@@ -174,9 +174,13 @@
     <br>
     <br>
     <h5>Implementation</h5>
-
+<br>
+<h6 id="sample">Architecture Diagram</h6>
     <br>
-    <h6 id="sample">Component Sample</h6>
+    <div>
+      <img src="./assets/component-architecture.png" alt="">
+    </div>
+    <h6 id="sample">Sample Use</h6>
     <div class="highlight">
       &lt;app&#45;multi&nbsp;<br>
       &nbsp;&nbsp;&nbsp;&nbsp;backendRoute = &quot;/customer/001&quot;&nbsp;<br>
@@ -226,7 +230,7 @@
     </div>
     <div class="highlight">
       <div class="row">
-        <div class="col-3"><strong>hiddenFields</strong> :array</div>
+        <div class="col-3"><strong>hiddenFields</strong> :string[]</div>
         <div class="col-5">The developer will use this array in order to filter out fields that they wish not to be
           rendered. They can use the <strong>id</strong> property of each field returned from the backend. See more in
           the <a href="#api">API section</a> </div>
@@ -260,11 +264,11 @@
     <h4 id="api">API Explanation</h4>
     <p>Here is a brief explanation of the API that we will use and the schema of the data. This will help to understand
       how the data is structured
-      and how we will implement them in our component.</p>
+      and how we will consume them in our component.</p>
     <p>The schema is designed so all our views, list or details, can use a single method to retrieve them. The api
       responds with an array of elements.
       If our view is a list, the array will contain more than one element, otherwise just one. Each element encloses an object 
-      named <strong>displayeData</strong> that in return is an array with all the properties necessary to render our UI. More specific, 
+      named <strong>displayedData</strong> that in return is an array with all the properties necessary to render our UI. More specific, 
       these properties are <i>id, displayName and value</i>.
       <br><br>
       <p>The <strong>id</strong> will be used by the user in order to filter out fields from the UI.</p>

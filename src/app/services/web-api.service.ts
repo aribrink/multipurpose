@@ -3,8 +3,7 @@ import { IWebApiService } from './webapi.service.interface';
 import { HttpClient } from "@angular/common/http";
 import { of } from 'rxjs/internal/observable/of';
 import { Observable } from 'rxjs';
-import { Product } from '../models/product.model';
-import { Customer } from '../models/customer.model';
+import { DataItem } from '../models/data-item.model';
 
 
 @Injectable({
@@ -15,7 +14,7 @@ export class WebApiService implements IWebApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loadData(endpoint: string): Observable<any> {
+  loadData(endpoint: string): Observable<DataItem[]> {
     switch (endpoint) {
       case "/products":
         return of(this.demoDataList);        

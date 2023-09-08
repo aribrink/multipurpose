@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  title = 'testApp';
+  title = 'Multi-Purpose Component';
   apiSample=[
     {
       "id": 1,
