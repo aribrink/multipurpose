@@ -115,7 +115,7 @@
 
 </div>
 <pre>
-  
+
 </pre>
 <div class="content" role="main">
   <ul class="nav nav-tabs">
@@ -141,7 +141,8 @@
     and parsing of that data should be handled inside this component and the user should be able to parameterize it
     using input
     parameters. The user should also be able to handle which
-    data is visible and how the component is rendered. We would also like to have the capability to maintain and extent the
+    data is visible and how the component is rendered. We would also like to have the capability to maintain and extent
+    the
     component with ease, if the need arises in the future.
     <br>
     <br>
@@ -180,8 +181,8 @@
     <br>
     <br>
     <h5>Implementation</h5>
-<br>
-<h6 id="sample">Architecture Diagram</h6>
+    <br>
+    <h6 id="sample">Architecture Diagram</h6>
     <br>
     <div>
       <img src="./assets/component-architecture.png" alt="">
@@ -273,19 +274,22 @@
       and how we will consume them in our component.</p>
     <p>The schema is designed so all our views, list or details, can use a single method to retrieve them. The api
       responds with an array of elements.
-      If our view is a list, the array will contain more than one element, otherwise just one. Each element encloses an object 
-      named <strong>displayedData</strong> that in return is an array with all the properties necessary to render our UI. More specific, 
+      If our view is a list, the array will contain more than one element, otherwise just one. Each element encloses an
+      object
+      named <strong>displayedData</strong> that in return is an array with all the properties necessary to render our
+      UI. More specific,
       these properties are <i>id, displayName and value</i>.
       <br><br>
-      <p>The <strong>id</strong> will be used by the user in order to filter out fields from the UI.</p>
-      <p>The <strong>displayName</strong> will be used in order to render the name of the property when necessary.</p>
-      <p>The <strong>value</strong> is the attribute that will be most commonly used when we want to render our data. This is the attribute 
-        we will use in the list items and in the form elements.</p>
+    <p>The <strong>id</strong> will be used by the user in order to filter out fields from the UI.</p>
+    <p>The <strong>displayName</strong> will be used in order to render the name of the property when necessary.</p>
+    <p>The <strong>value</strong> is the attribute that will be most commonly used when we want to render our data. This
+      is the attribute
+      we will use in the list items and in the form elements.</p>
     <br>
 
     <h6 id="sample">API Sample</h6>
     <div class="highlight">
-     <pre> {{apiSample | json}}     </pre>
+      <pre> {{apiSample | json}}     </pre>
     </div>
     <br>
 
@@ -295,9 +299,11 @@
   <!------------------ Page 2 ------------------------>
   <!-------------------------------------------------->
   <div *ngIf="page==1">
-    <app-multi backendRoute="/products" displayType="list" headerTitle="Products List" [actionAdd]=false [actionEdit]=true
-      [hideDisabledActions]=false  [hiddenFields]="[]"></app-multi>
+    <div class="sample-header">List View</div>
+    <app-multi backendRoute="/products" displayType="list" headerTitle="Products List" [actionAdd]=false
+      [actionEdit]=true [hideDisabledActions]=false [hiddenFields]="[]"></app-multi>
 
+      <div class="sample-header">Details View</div>
     <app-multi backendRoute="/customer/001" displayType="details" displayOption="column-2"
       headerTitle="Customer Details" [actionAdd]=true [actionEdit]=false [hideDisabledActions]=true
       [hiddenFields]="['id']">
