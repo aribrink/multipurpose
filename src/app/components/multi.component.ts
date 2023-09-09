@@ -14,7 +14,7 @@ export class MultiComponent implements OnInit {
   @Input() headerTitle = '';
   @Input() displayType = '';
   @Input() hiddenFields: string[] = [];
-  @Input() displayOption = 'column-2';
+  @Input() displayOption = '';
   @Input() actionEdit: Boolean = false;
   @Input() actionAdd: Boolean = false;
   @Input() hideDisabledActions: Boolean = true;
@@ -28,7 +28,6 @@ export class MultiComponent implements OnInit {
   constructor(private webApiService: WebApiService) { }
 
   ngOnInit(): void {
-
     this.config = {
       backendRoute: this.backendRoute,
       headerTitle: this.headerTitle,
@@ -41,7 +40,6 @@ export class MultiComponent implements OnInit {
         edit: this.actionEdit
       }
     }
-
     this.loadData(this.backendRoute);
   }
 
@@ -54,7 +52,9 @@ export class MultiComponent implements OnInit {
       })
   }
 
-  // Helper Method to filter visible items
+  // **********************
+  // Helper Methods
+  // **********************
   filterDisplayDataBy(array1: DataItem[], array2: string[]) {
 
     // We filter out display items depending the components entityVisibleItems
@@ -78,4 +78,5 @@ export class MultiComponent implements OnInit {
     this.componentData = this.filterDisplayDataBy(data, this.hiddenFields);
 
   }
+
 }

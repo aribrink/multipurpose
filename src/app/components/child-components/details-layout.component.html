@@ -1,0 +1,22 @@
+<!-- * * * * * * * * * * * DETAILS VIEW * * * * * * * * * * * * * * * * -->
+<div class="component-container">
+    <div class="card">
+        <div class="header">
+            <div class="title">{{headerTitle}}</div>
+            <div class="actions">
+                <div class="action btn btn-primary" [class.disabled]="!actionAdd" [class.hidden]="hideDisabledActions && !actionAdd">Add</div>
+                <div class="action btn btn-primary" [class.disabled]="!actionEdit" [class.hidden]="hideDisabledActions && !actionEdit">Edit</div>
+            </div>
+        </div>
+        <div class="content">
+            <form class = "row" style="width: 100%;">
+                <div class="col-6" *ngFor="let field of data![0].displayData">
+                    <label for="inputEmail4">{{field.displayName}}</label>
+                    <input type="text" class="form-control" id="inputEmail4" [placeholder]="field!.value" [disabled]="!actionEdit">
+                </div>                        
+            </form>
+        </div>
+    </div>
+    
+
+</div>

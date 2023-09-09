@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  page: number = 0;
+  page: number = 1;
 
   ngOnInit(): void {
 
@@ -55,4 +55,7 @@ export class AppComponent implements OnInit {
       ]
     },
   ]
+
+ 
+
 }
