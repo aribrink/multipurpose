@@ -155,9 +155,9 @@
     and parsing of that data should be handled inside this component and the user should be able to parameterize it
     using input
     parameters. The user should also be able to handle which
-    data is visible and how the component is rendered. We would also like to have the capability to maintain and extent
+    data is visible and how the component is rendered. We would also like to have the capability to maintain and extend
     the
-    component with ease, if the need arises in the future.
+    component with ease if the need arises in the future.
     <br>
     <br>
     <br>
@@ -165,8 +165,8 @@
     <br>
     <h6 id="ui">UI/UX</h6>
     <p>The component will consist of two main parts. The <strong>Header section</strong> and the <strong>Content
-        section</strong>. In the header section we will need to have a title and some action buttons that can be used to
-      perform various tasks. For now we need two actions: ADD and EDIT.</p>
+        section</strong>. In the header section, we will need to have a title and some action buttons that can be used to
+      perform various tasks. For now, we need two actions: ADD and EDIT.</p>
     <br>
     <p>
       The content section is where the different views of the component will be rendered.
@@ -177,18 +177,18 @@
       parameterization might be needed for specific fields
       but the general idea will be to have a clean design that will be easy to adapt based on the component's user
       decisions.
-      Each item in the list will render a dynamic ammount of elements in a row. The selection will be handled by the
+      Each item in the list will render a dynamic amount of elements in a row. The selection will be handled by the
       user.
       (see <i>hiddenFields</i>, <a href="#root-input-parameters"> Root Component Inputs</a>) The list should be
       scrollable of
       course and each
       item
-      should be clickable in order for the component to be able to fetch its details from the backend service</p>
+      should be clickable for the component to be able to fetch its details from the backend service</p>
     <br>
     <p>
       Our second view will be the <strong>Details View</strong>. In this view, data will be rendered in the appearance
       of a form.
-      For now we just need to display the data in a two columns formation but that can potentially change so we should
+      For now, we just need to display the data in a two-column formation but that can potentially change so we should
       anticipate
       that in our implementation. What fields will be displayed will be dynamic and will be handled by the user with the
       use of
@@ -238,11 +238,11 @@
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>displayOption</strong> :string</div>
-        <div class="col-5">We use this parameter in order to anticipate future iteretions with additional display
+        <div class="col-5">We use this parameter in order to anticipate future iterations with additional display
           options.
-          For now the only valid option will be the default "column-2" for the <strong>Details</strong> view and the
+          For now, the only valid option will be the default "column-2" for the <strong>Details</strong> view and the
           user
-          should be able to ommit it.</div>
+          should be able to omit it.</div>
         <div class="col-4 text-center">Valid Option: <br> "column-2"</div>
       </div>
     </div>
@@ -257,7 +257,7 @@
       <div class="row">
         <div class="col-3"><strong>hiddenFields</strong> :string[]</div>
         <div class="col-5">The user can use this array to filter out fields that they wish not to be
-          rendered. It should be and array of <strong>DisplayItem.id</strong> strings. See above in
+          rendered. It should be an array of <strong>DisplayItem.id</strong> strings. See above in
           the <a href="#diagram">Models section</a> (model: DisplayItem) of the architecture diagram for details, or the
           <a href="#api">API section</a>.
         </div>
@@ -268,22 +268,22 @@
       <div class="row">
         <div class="col-3"><strong>actionEdit</strong> :boolean</div>
         <div class="col-5"> Will enable or disable the EDIT action of the component</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>actionAdd</strong> :boolean</div>
         <div class="col-5"> Will enable or disable the ADD action of the component</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>hideDisabledActions</strong> :boolean</div>
-        <div class="col-5"> With this option we can instruct the component to render the disabled actions as inactive or
+        <div class="col-5"> With this option, we can instruct the component to render the disabled actions inactive or
           hide them altogether.</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <br>
@@ -317,28 +317,28 @@
       <div class="row">
         <div class="col-3"><strong>actionEdit</strong> :boolean</div>
         <div class="col-5">Inherited from root.</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>actionAdd</strong> :boolean</div>
         <div class="col-5">Inherited from root.</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>hideDisabledActions</strong> :boolean</div>
         <div class="col-5"> Inherited from root.</div>
-        <div class="col-4 text-center">Valid options: <br> true / false</div>
+        <div class="col-4 text-center">Valid options: <br> true/false</div>
       </div>
     </div>
     <br>
-    
+
     <h4 id="service">WebApi Service</h4>
     <p>The WebApi service should have a single <strong>loadData</strong> method that receives a string parameter with
-      the corresponding api endpoint. It should return a DataItem array.
+      the corresponding API endpoint. It should return a DataItem array.
       See above in the <a href="#diagram">Models section</a> (model: DataItem) of the architecture diagram for details.
     </p>
     <br>
@@ -347,19 +347,19 @@
     <p>Here is a brief explanation of the API that we will use and the schema of the data. This will help to understand
       how the data is structured
       and how we will consume them in our component.</p>
-    <p>The schema is designed so all our views, list or details, can use a single method to retrieve them. The api
+    <p>The schema is designed so that all our views, list or details, can use a single method to retrieve them. The API
       responds with an array of elements.
       If our view is a list, the array will contain more than one element, otherwise just one. Each element encloses an
       object
       named <strong>displayedData</strong> that in return is an array with all the properties necessary to render our
-      UI. More specific,
-      these properties are <i>id, displayName and value</i>.
+      UI. More specifically,
+      these properties are <i>id, displayName, and value</i>.
       <br><br>
-    <p>The <strong>id</strong> will be used by the user in order to filter out fields from the UI.</p>
-    <p>The <strong>displayName</strong> will be used in order to render the name of the property when necessary.</p>
+    <p>The <strong>id</strong> will be used by the user to filter out fields from the UI.</p>
+    <p>The <strong>displayName</strong> will be used to render the name of the property when necessary.</p>
     <p>The <strong>value</strong> is the attribute that will be most commonly used when we want to render our data. This
       is the attribute
-      we will use in the list items and in the form elements.</p>
+      we will use in the list items and the form elements.</p>
     <br>
 
     <h6 id="api-sample">API Sample</h6>
