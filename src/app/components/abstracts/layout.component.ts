@@ -13,4 +13,11 @@ export abstract class LayoutComponent {
     @Input() actionAdd: Boolean = false;
     @Input() hideDisabledActions: Boolean = true;
     @Input() data: DataItem[] = [];
+
+    adding:boolean = false;
+    editing:boolean = false;
+
+    edit(){
+      this.editing = !this.editing;
+    }
 }

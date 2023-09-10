@@ -4,15 +4,15 @@
         <div class="header">
             <div class="title">{{headerTitle}}</div>
             <div class="actions">
-                <div class="action btn btn-primary" [class.disabled]="!actionAdd" [class.hidden]="hideDisabledActions && !actionAdd">Add</div>
-                <div class="action btn btn-primary" [class.disabled]="!actionEdit" [class.hidden]="hideDisabledActions && !actionEdit">Edit</div>
+                <div class="action btn btn-outline-primary" [class.disabled]="!actionAdd" [class.hidden]="hideDisabledActions && !actionAdd">Add</div>
+                <div class="action btn" [class.btn-outline-primary]="!editing" [class.btn-primary]="editing" [class.disabled]="!actionEdit" [class.hidden]="hideDisabledActions && !actionEdit" (click)="edit()">Edit</div>
             </div>
         </div>
         <div class="content">
             <form class = "row" style="width: 100%;">
                 <div class="col-6" *ngFor="let field of data![0].displayData">
                     <label for="inputEmail4">{{field.displayName}}</label>
-                    <input type="text" class="form-control" id="inputEmail4" [placeholder]="field!.value" [disabled]="!actionEdit">
+                    <input type="text" class="form-control" [placeholder]="field!.value" [disabled]="!editing">
                 </div>                        
             </form>
         </div>

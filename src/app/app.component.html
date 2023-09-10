@@ -165,7 +165,7 @@
       decisions.
       Each item in the list will render a dynamic ammount of elements in a row. The selection will be handled by the
       user.
-      (see bellow, <a href="#input-parameters">Inputs/Parameters</a>) The list should be scrollable of course and each
+      (see <i>hiddenFields</i>, <a href="#input-parameters"> Root Component Inputs</a>) The list should be scrollable of course and each
       item
       should be clickable in order for the component to be able to fetch its details from the backend service</p>
     <br>
@@ -176,7 +176,7 @@
       anticipate
       that in our implementation. What fields will be displayed will be dynamic and will be handled by the user with the
       use of
-      a component parameter, like in the List view. (see bellow, <a href="#input-parameters">Inputs/Parameters</a>)
+      a component parameter, like in the List view. (see <i>hiddenFields</i>, <a href="#input-parameters">Root Component Inputs</a>)
     </p>
     <br>
     <br>
@@ -200,8 +200,8 @@
       &nbsp;&nbsp;&nbsp;&nbsp;[hiddenFields] = &quot;[&#39;id&#39;]&quot;&gt;<br>
       &lt;/app&#45;multi&gt;<br>
     </div>
-
-    <h6 id="input-parameters">Inputs/Parameteres</h6>
+<br>
+    <h6 id="input-parameters">Root Component Inputs</h6>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>backendRoute</strong> :string</div>
@@ -238,9 +238,9 @@
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>hiddenFields</strong> :string[]</div>
-        <div class="col-5">The developer will use this array in order to filter out fields that they wish not to be
-          rendered. They can use the <strong>id</strong> property of each field returned from the backend. See more in
-          the <a href="#api">API section</a> </div>
+        <div class="col-5">The user can use this array to filter out fields that they wish not to be
+          rendered. It should be and array of <strong>DisplayItem.id</strong> strings. See more in
+          the Models section [DisplayItem] in the diagram above, or the <a href="#api">API section</a> </div>
         <div class="col-4 text-center">Examples: <br> ['id','first','street']</div>
       </div>
     </div>
@@ -263,6 +263,54 @@
         <div class="col-3"><strong>hideDisabledActions</strong> :boolean</div>
         <div class="col-5"> With this option we can instruct the component to render the disabled actions as inactive or
           hide them altogether.</div>
+        <div class="col-4 text-center">Valid options: <br> true / false</div>
+      </div>
+    </div>
+    <br>
+
+
+    <h6 id="input-parameters">LayoutComponent Inputs</h6>
+    <p>All layout child components (e.g. List/ View) extend this class.</p>
+    <p>All inputs except <i>data</i> should be inherited from the root inputs.</p>
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>data</strong> :DataItem[]</div>
+        <div class="col-5">This is the parsed and filtered data that the layout component should render.</div>
+        <div class="col-4 text-center">Example: <br> "\products"</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>displayOption</strong> :string</div>
+        <div class="col-5">Inherited from root.</div>
+        <div class="col-4 text-center">Valid Option: <br> "column-2"</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>headerTitle</strong> :string</div>
+        <div class="col-5">Inherited from root.</div>
+        <div class="col-4 text-center">Examples: <br> "Products List", "Customer"</div>
+      </div>
+    </div> 
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>actionEdit</strong> :boolean</div>
+        <div class="col-5">Inherited from root.</div>
+        <div class="col-4 text-center">Valid options: <br> true / false</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>actionAdd</strong> :boolean</div>
+        <div class="col-5">Inherited from root.</div>
+        <div class="col-4 text-center">Valid options: <br> true / false</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <div class="row">
+        <div class="col-3"><strong>hideDisabledActions</strong> :boolean</div>
+        <div class="col-5"> Inherited from root.</div>
         <div class="col-4 text-center">Valid options: <br> true / false</div>
       </div>
     </div>
@@ -305,7 +353,7 @@
 
       <div class="sample-header">Details View</div>
     <app-multi backendRoute="/customer/001" displayType="details" displayOption="column-2"
-      headerTitle="Customer Details" [actionAdd]=true [actionEdit]=false [hideDisabledActions]=true
+      headerTitle="Customer Details" [actionAdd]=false [actionEdit]=true [hideDisabledActions]=true
       [hiddenFields]="['id']">
     </app-multi>
   </div>

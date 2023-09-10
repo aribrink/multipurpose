@@ -1,12 +1,3 @@
-<div class="highlight" *ngIf="componentData">
-    data:
-    <pre>{{componentData | json}}</pre>
-</div>
-<div class="highlight">
-    config:
-    <pre>{{config | json}}</pre>
-</div>
-
 
 <div [ngSwitch]="displayType">
 
@@ -15,7 +6,7 @@
         <app-list-layout [data]="componentData" [headerTitle]="headerTitle" [actionEdit]="actionEdit"
             [actionAdd]="actionAdd" [hideDisabledActions]="hideDisabledActions"></app-list-layout>
         <!-- Test -->
-        <div class="card align-items-end" style="padding: 10px;">
+        <div  style="padding: 10px; text-align: center;">
             <div class="btn btn-primary" *ngIf="!testIds" (click)="toggle('id')">Test: Remove Ids</div>
             <div class="btn btn-primary" *ngIf="testIds" (click)="toggle('id')">Test: Show Ids</div>
         </div>
@@ -26,9 +17,22 @@
         <app-details-layout [data]="componentData" [headerTitle]="headerTitle" [actionEdit]="actionEdit"
             [actionAdd]="actionAdd" [hideDisabledActions]="hideDisabledActions"></app-details-layout>
         <!-- Test -->
-        <div class="card align-items-end" style="padding: 10px;">
+        <div style="padding: 10px; text-align: center;">
             <div class="btn btn-primary" *ngIf="!testIds" (click)="toggle('first');toggle('last');">Test: Remove First and Last name</div>
             <div class="btn btn-primary" *ngIf="testIds" (click)="toggle('first');toggle('last');">Test: Show First and Last name</div>
         </div>
     </div>
 </div>
+
+
+<!-- Sample helper printouts -->
+<div class="highlight">
+    config:
+    <pre>{{config | json}}</pre>
+</div>
+<div class="highlight" *ngIf="componentData">
+    data:
+    <pre>{{componentData | json}}</pre>
+</div>
+
+
