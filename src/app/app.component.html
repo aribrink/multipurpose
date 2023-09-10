@@ -133,7 +133,19 @@
   <!-------------------------------------------------->
   <div *ngIf="page==0">
     <h2>Multi-Purpose Angular Component</h2>
-    <p>Ver. 1.0.0 - Aris brink - Initial Draft</p>
+    <p>Ver. 1.0.0 - Aris Brink Koutroulis - Initial Draft</p>
+    <br>
+    <h4>Contents</h4>
+    <p>1. <a href="#diagram">Overview</a></p>
+    <p>2. <a href="#ui">UI/UX</a></p>
+    <p>3. <a href="#diagram">Architecture Diagram</a></p>
+    <p>4. <a href="#sample">Sample use</a></p>
+    <p>5. <a href="#root-input-parameters">Root component Inputs</a></p>
+    <p>6. <a href="#child-input-parameters">Child component Inputs</a></p>
+    <p>7. <a href="#service">WebApi Service</a></p>
+    <p>8. <a href="#api">API Explanation</a></p>
+    <p>9. <a href="#api-sample">API Sample</a></p>
+
     <br><br>
     <h4>Overview</h4>
     We are required to create a versatile multi-purpose component in order to display various data derived from a WebApi
@@ -149,7 +161,7 @@
     <br>
     <h4>Component Design</h4>
     <br>
-    <h6>UI/UX</h6>
+    <h6 id="ui">UI/UX</h6>
     <p>The component will consist of two main parts. The <strong>Header section</strong> and the <strong>Content
         section</strong>. In the header section we will need to have a title and some action buttons that can be used to
       perform various tasks. For now we need two actions: ADD and EDIT.</p>
@@ -159,13 +171,15 @@
       We would like our component to have two distinctive views in its first iteration, adaptable enough however to be
       able to add more in the future.</p>
     <br>
-    <p>Our first view, will be the <strong>List View</strong>. Here our data will be rendered in sequence. Some
+    <p>Our first view will be the <strong>List View</strong>. Here our data will be rendered in sequence. Some
       parameterization might be needed for specific fields
       but the general idea will be to have a clean design that will be easy to adapt based on the component's user
       decisions.
       Each item in the list will render a dynamic ammount of elements in a row. The selection will be handled by the
       user.
-      (see <i>hiddenFields</i>, <a href="#input-parameters"> Root Component Inputs</a>) The list should be scrollable of course and each
+      (see <i>hiddenFields</i>, <a href="#root-input-parameters"> Root Component Inputs</a>) The list should be
+      scrollable of
+      course and each
       item
       should be clickable in order for the component to be able to fetch its details from the backend service</p>
     <br>
@@ -176,13 +190,15 @@
       anticipate
       that in our implementation. What fields will be displayed will be dynamic and will be handled by the user with the
       use of
-      a component parameter, like in the List view. (see <i>hiddenFields</i>, <a href="#input-parameters">Root Component Inputs</a>)
+      a component parameter, like in the List view. (see <i>hiddenFields</i>, <a href="#root-input-parameters">Root
+        Component
+        Inputs</a>)
     </p>
     <br>
     <br>
     <h5>Implementation</h5>
     <br>
-    <h6 id="sample">Architecture Diagram</h6>
+    <h6 id="diagram">Architecture Diagram</h6>
     <br>
     <div>
       <img src="./assets/component-architecture.png" alt="">
@@ -197,11 +213,11 @@
       &nbsp;&nbsp;&nbsp;&nbsp;[actionAdd] = true&nbsp;<br>
       &nbsp;&nbsp;&nbsp;&nbsp;[actionEdit] = false&nbsp;<br>
       &nbsp;&nbsp;&nbsp;&nbsp;[hideDisabledActions] = true<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;[hiddenFields] = &quot;[&#39;id&#39;]&quot;&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;[hiddenFields] = &quot;[&#39;id&#39;,&#39;first&#39;,&#39;zip&#39;]&quot;&gt;<br>
       &lt;/app&#45;multi&gt;<br>
     </div>
-<br>
-    <h6 id="input-parameters">Root Component Inputs</h6>
+    <br>
+    <h6 id="root-input-parameters">Root Component Inputs</h6>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>backendRoute</strong> :string</div>
@@ -231,7 +247,7 @@
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>headerTitle</strong> :string</div>
-        <div class="col-5">This is the parameter that defines the sting used in the header of the component.</div>
+        <div class="col-5">This is the parameter that defines the string used in the header of the component.</div>
         <div class="col-4 text-center">Examples: <br> "Products List", "Customer"</div>
       </div>
     </div>
@@ -239,8 +255,10 @@
       <div class="row">
         <div class="col-3"><strong>hiddenFields</strong> :string[]</div>
         <div class="col-5">The user can use this array to filter out fields that they wish not to be
-          rendered. It should be and array of <strong>DisplayItem.id</strong> strings. See more in
-          the Models section [DisplayItem] in the diagram above, or the <a href="#api">API section</a> </div>
+          rendered. It should be and array of <strong>DisplayItem.id</strong> strings. See above in
+          the <a href="#diagram">Models section</a> (model: DisplayItem) of the architecture diagram for details, or the
+          <a href="#api">API section</a>.
+        </div>
         <div class="col-4 text-center">Examples: <br> ['id','first','street']</div>
       </div>
     </div>
@@ -269,8 +287,8 @@
     <br>
 
 
-    <h6 id="input-parameters">LayoutComponent Inputs</h6>
-    <p>All layout child components (e.g. List/ View) extend this class.</p>
+    <h6 id="child-input-parameters">LayoutComponent Inputs</h6>
+    <p>All layout child components (e.g. List/ View) extend this component class.</p>
     <p>All inputs except <i>data</i> should be inherited from the root inputs.</p>
     <div class="highlight">
       <div class="row">
@@ -292,7 +310,7 @@
         <div class="col-5">Inherited from root.</div>
         <div class="col-4 text-center">Examples: <br> "Products List", "Customer"</div>
       </div>
-    </div> 
+    </div>
     <div class="highlight">
       <div class="row">
         <div class="col-3"><strong>actionEdit</strong> :boolean</div>
@@ -315,7 +333,14 @@
       </div>
     </div>
     <br>
-
+    
+    <h4 id="service">WebApi Service</h4>
+    <p>The WebApi service should have a single <strong>loadData</strong> method that receives a string parameter with
+      the corresponding api endpoint. It should return a DataItem array.
+      See above in the <a href="#diagram">Models section</a> (model: DataItem) of the architecture diagram for details.
+    </p>
+    <br>
+    <br>
     <h4 id="api">API Explanation</h4>
     <p>Here is a brief explanation of the API that we will use and the schema of the data. This will help to understand
       how the data is structured
@@ -335,7 +360,7 @@
       we will use in the list items and in the form elements.</p>
     <br>
 
-    <h6 id="sample">API Sample</h6>
+    <h6 id="api-sample">API Sample</h6>
     <div class="highlight">
       <pre> {{apiSample | json}}     </pre>
     </div>
@@ -351,7 +376,7 @@
     <app-multi backendRoute="/products" displayType="list" headerTitle="Products List" [actionAdd]=false
       [actionEdit]=true [hideDisabledActions]=false [hiddenFields]="[]"></app-multi>
 
-      <div class="sample-header">Details View</div>
+    <div class="sample-header">Details View</div>
     <app-multi backendRoute="/customer/001" displayType="details" displayOption="column-2"
       headerTitle="Customer Details" [actionAdd]=false [actionEdit]=true [hideDisabledActions]=true
       [hiddenFields]="['id']">
